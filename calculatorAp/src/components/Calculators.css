@@ -1,4 +1,4 @@
-.calculator {
+.calculator-container {
   width: 300px;
   margin: 50px auto;
   background: #000;
@@ -8,4 +8,19 @@
 }
 .display {
   background: 444;
+  color: white;
+  font-size: 2em;
+  padding: 20px;
+  text-align: right;
+}
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.buttons.orange {
+  background: orange;
+  color: white;
+}
+.buttons.zero {
+  grid-column: span 2;
 }

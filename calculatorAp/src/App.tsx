@@ -16,7 +16,7 @@
 // }
 // export default App;
 import Calculator from "./components/Calculator";
-function App() {
+function App(): React.JSX.Element {
   return (
     <div>
       {" "}

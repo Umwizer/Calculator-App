@@ -61,7 +61,7 @@ function Calculator(): React.JSX.Element {
         <div className="display">{value || previousValue || "0"}</div>
       </div>
 
-      <div className="buttons-grid">
+      <div className="buttons">
         {/* Number buttons */}
         {["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"].map((num) => (
           <button key={num} onClick={() => handleNumberClick(num)}>
