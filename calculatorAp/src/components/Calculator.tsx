@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import "./Calculators.css";
 function Calculator(): React.JSX.Element {
   const [value, SetValue] = useState<string>("");
   const [previousValue, setPrevious] = useState<string>("");
