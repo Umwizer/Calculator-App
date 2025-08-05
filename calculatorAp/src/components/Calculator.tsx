@@ -70,39 +70,58 @@ function Calculator(): React.JSX.Element {
   };
 
   return (
-    <>
-      <div className="calculator-container">
-        <div className="display">{value || previousValue || "0"}</div>
-      </div>
+    <div className="calculator-container">
+      <div className="display">{value || previousValue || "0"}</div>
+
       <div className="buttons">
-        <button className="orange" onClick={handleClearClick}>
+        <button className="secondary" onClick={handleClearClick}>
           AC
         </button>
-        <button className="orange" onClick={handlePlusMinus}>
+        <button className="secondary" onClick={handlePlusMinus}>
           +/-
         </button>
-        <button className="orange" onClick={handlePercentage}>
+        <button className="secondary" onClick={handlePercentage}>
           %
         </button>
         <button className="orange" onClick={() => handleOperator("÷")}>
           ÷
         </button>
 
-        <button onClick={() => handleNumberClick("7")}>7</button>
-        <button onClick={() => handleNumberClick("8")}>8</button>
-        <button onClick={() => handleNumberClick("9")}>9</button>
+        <button className="secondary" onClick={() => handleNumberClick("7")}>
+          7
+        </button>
+        <button className="secondary" onClick={() => handleNumberClick("8")}>
+          8
+        </button>
+        <button className="secondary" onClick={() => handleNumberClick("9")}>
+          9
+        </button>
         <button className="orange" onClick={() => handleOperator("×")}>
           ×
         </button>
 
-        <button onClick={() => handleNumberClick("4")}>4</button>
-        <button onClick={() => handleNumberClick("5")}>5</button>
-        <button onClick={() => handleNumberClick("6")}>6</button>
-        <button onClick={() => handleOperator("-")}>-</button>
+        <button className="secondary" onClick={() => handleNumberClick("4")}>
+          4
+        </button>
+        <button className="secondary" onClick={() => handleNumberClick("5")}>
+          5
+        </button>
+        <button className="secondary" onClick={() => handleNumberClick("6")}>
+          6
+        </button>
+        <button className="orange" onClick={() => handleOperator("-")}>
+          -
+        </button>
 
-        <button onClick={() => handleNumberClick("1")}>1</button>
-        <button onClick={() => handleNumberClick("2")}>2</button>
-        <button onClick={() => handleNumberClick("3")}>3</button>
+        <button className="secondary" onClick={() => handleNumberClick("1")}>
+          1
+        </button>
+        <button className="secondary" onClick={() => handleNumberClick("2")}>
+          2
+        </button>
+        <button className="secondary" onClick={() => handleNumberClick("3")}>
+          3
+        </button>
         <button className="orange" onClick={() => handleOperator("+")}>
           +
         </button>
@@ -115,7 +134,7 @@ function Calculator(): React.JSX.Element {
           =
         </button>
       </div>
-    </>
+    </div>
   );
 }
 
