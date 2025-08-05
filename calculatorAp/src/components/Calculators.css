@@ -1,4 +1,3 @@
-/* Center the calculator */
 body {
   margin: 0;
   padding: 0;
@@ -6,19 +5,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f1f1f1; /* optional */
 }
-
 .calculator-container {
   width: 320px;
-  /* margin: 50px auto; REMOVE THIS */
-  border-radius: 0; /* REMOVE ROUNDED CORNERS */
+
+  border-radius: 0;
   overflow: hidden;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  background-color: #fff; /* optional */
+  background-color: #fff;
 }
 
-/* Your original styles */
 .display {
   width: 100%;
   height: 80px;
