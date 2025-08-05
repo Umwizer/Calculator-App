@@ -1,12 +1,13 @@
 import { useState } from "react";
 import "./Calculators.css";
+
 function Calculator(): React.JSX.Element {
-  const [value, SetValue] = useState<string>("");
+  const [value, setValue] = useState<string>("");
   const [previousValue, setPrevious] = useState<string>("");
   const [operator, setOperator] = useState<string>("");
 
   const handleNumberClick = (num: string): void => {
-    SetValue(value + num);
+    setValue(value + num);
   };
 
   const calculatorResults = (): string => {
@@ -28,22 +29,23 @@ function Calculator(): React.JSX.Element {
   };
 
   const handleOperator = (op: string): void => {
+    const realOp = op === "×" ? "*" : op === "÷" ? "/" : op;
     if (previousValue && operator && value) {
       const result = calculatorResults();
       setPrevious(result);
-      SetValue("");
-      setOperator(op);
+      setValue("");
+      setOperator(realOp);
     } else if (value) {
       setPrevious(value);
-      SetValue("");
-      setOperator(op);
+      setValue("");
+      setOperator(realOp);
     }
   };
 
   const handleEqualClick = (): void => {
     if (previousValue && operator && value) {
       const result = calculatorResults();
-      SetValue(result);
+      setValue(result);
       setPrevious("");
       setOperator("");
     }
@@ -51,8 +53,20 @@ function Calculator(): React.JSX.Element {
 
   const handleClearClick = (): void => {
     setPrevious("");
-    SetValue("");
+    setValue("");
     setOperator("");
+  };
+
+  const handlePlusMinus = (): void => {
+    if (value) {
+      setValue((parseFloat(value) * -1).toString());
+    }
+  };
+
+  const handlePercentage = (): void => {
+    if (value) {
+      setValue((parseFloat(value) / 100).toString());
+    }
   };
 
   return (
@@ -60,24 +74,46 @@ function Calculator(): React.JSX.Element {
       <div className="calculator-container">
         <div className="display">{value || previousValue || "0"}</div>
       </div>
-
       <div className="buttons">
-        {/* Number buttons */}
-        {["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"].map((num) => (
-          <button key={num} onClick={() => handleNumberClick(num)}>
-            {num}
-          </button>
-        ))}
+        <button className="orange" onClick={handleClearClick}>
+          AC
+        </button>
+        <button className="orange" onClick={handlePlusMinus}>
+          +/-
+        </button>
+        <button className="orange" onClick={handlePercentage}>
+          %
+        </button>
+        <button className="orange" onClick={() => handleOperator("÷")}>
+          ÷
+        </button>
 
-        {/* Operator buttons */}
-        {["+", "-", "*", "/"].map((op) => (
-          <button key={op} onClick={() => handleOperator(op)}>
-            {op}
-          </button>
-        ))}
+        <button onClick={() => handleNumberClick("7")}>7</button>
+        <button onClick={() => handleNumberClick("8")}>8</button>
+        <button onClick={() => handleNumberClick("9")}>9</button>
+        <button className="orange" onClick={() => handleOperator("×")}>
+          ×
+        </button>
 
-        <button onClick={handleEqualClick}>=</button>
-        <button onClick={handleClearClick}>AC</button>
+        <button onClick={() => handleNumberClick("4")}>4</button>
+        <button onClick={() => handleNumberClick("5")}>5</button>
+        <button onClick={() => handleNumberClick("6")}>6</button>
+        <button onClick={() => handleOperator("-")}>-</button>
+
+        <button onClick={() => handleNumberClick("1")}>1</button>
+        <button onClick={() => handleNumberClick("2")}>2</button>
+        <button onClick={() => handleNumberClick("3")}>3</button>
+        <button className="orange" onClick={() => handleOperator("+")}>
+          +
+        </button>
+
+        <button className="zero-button" onClick={() => handleNumberClick("0")}>
+          0
+        </button>
+        <button onClick={() => handleNumberClick(".")}>.</button>
+        <button className="orange" onClick={handleEqualClick}>
+          =
+        </button>
       </div>
     </>
   );

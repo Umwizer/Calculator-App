@@ -7,6 +7,9 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   font-family: Arial, sans-serif;
 }
+.zero-button {
+  grid-column: span 2;
+}
 
 .display {
   background: #444;
@@ -48,8 +51,4 @@
 
 .buttons.orange:hover {
   background: darkorange;
-}
-
-.zero {
-  grid-column: span 2;
 }
