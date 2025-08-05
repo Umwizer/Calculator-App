@@ -39,7 +39,7 @@ body {
 button {
   height: 80px;
   font-size: 1.5rem;
-  background-color: darkgrey;
+  background-color: white;
   cursor: pointer;
   transition: background 0.2s;
 }
@@ -49,7 +49,7 @@ button:hover {
 }
 
 .secondary {
-  background-color: #c1c1c1;
+  background-color: white;
 }
 
 .secondary:hover {
